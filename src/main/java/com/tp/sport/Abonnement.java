@@ -14,7 +14,7 @@ public abstract class Abonnement {
         this.dureeMois   = dureeMois;
         this.prixMensuel = prixMensuel;
     }
-
+    /*test pour commit*/
     public LocalDate dateFin() {
         return dateDebut.plusMonths(dureeMois);
     }
