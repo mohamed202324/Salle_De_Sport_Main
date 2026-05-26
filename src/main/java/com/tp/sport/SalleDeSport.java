@@ -1,5 +1,8 @@
 package com.tp.sport;
 
+import java.util.ArrayList;
+
+public class SalleDeSport{
 
 public SalleDeSport() {
     this.adherents = new ArrayList<>();
@@ -16,4 +19,6 @@ public Adherent trouverAdherent(int id) {
 @Override
 public String toString() {
     return "SalleDeSport{nbAdherents=" + adherents.size() + ", nbSeances=" + seances.size() + "}";
+}
+
 }
