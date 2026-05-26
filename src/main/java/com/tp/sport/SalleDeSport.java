@@ -50,7 +50,7 @@ public class SalleDeSport {
                 return a;
             }
         }
-        throw new RuntimeException("Adhérent introuvable par id=:" + id);
+        throw new AdherentNotFoundException(id);
 
 
 

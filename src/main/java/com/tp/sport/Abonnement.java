@@ -8,7 +8,7 @@ public abstract class Abonnement {
     protected int dureeMois;
     protected double prixMensuel;
 
-    public Abonnement(String reference, LocalDate dateDebut, int dureeMois, double prixMensuel) {
+    protected Abonnement(String reference, LocalDate dateDebut, int dureeMois, double prixMensuel) {
         this.reference   = reference;
         this.dateDebut   = dateDebut;
         this.dureeMois   = dureeMois;

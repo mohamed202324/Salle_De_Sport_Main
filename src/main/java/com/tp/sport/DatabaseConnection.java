@@ -10,6 +10,11 @@ public class DatabaseConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
+
+    private DatabaseConnection() {
+        throw new UnsupportedOperationException("Classe utilitaire, non instanciable");
+    }
+
     public static Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
