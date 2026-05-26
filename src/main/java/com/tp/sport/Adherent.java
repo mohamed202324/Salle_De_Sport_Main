@@ -4,32 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Adherent {
-    public int id;
-    public String nom;
-    public Abonnement abonnement;
-    public List<Reservation> reservations;
+    // BUG 5 CORRIGÉ : champs public → private + getters
+    private int id;
+    private String nom;
+    private Abonnement abonnement;
+    private List<Reservation> reservations;
 
-    //Constructeurs
     public Adherent(int id, String nom, Abonnement abonnement, List<Reservation> reservations) {
-        this.id = id;
-        this.abonnement = abonnement;
+        this.id          = id;
+        this.nom         = nom;   // BUG 2 CORRIGÉ : this.nom = nom manquant dans l'original
+        this.abonnement  = abonnement;
         this.reservations = new ArrayList<>();
     }
-    //Getters
-    public int getId() {
-        return id;
-    }
-    public String getNom() {
-        return nom;
-    }
-    public Abonnement getAbonnement() {
-        return abonnement;
-    }
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
 
-    //Méthodes
+    public int getId()                        { return id; }
+    public String getNom()                    { return nom; }
+    public Abonnement getAbonnement()         { return abonnement; }
+    public List<Reservation> getReservations(){ return reservations; }
+
     public Reservation reserver(Seance s) {
         Reservation r = new Reservation(s);
         reservations.add(r);
@@ -37,26 +29,27 @@ public class Adherent {
     }
 
     public double depensesTotales() {
-        double total=0.0;
+        double total = 0.0;
         for (Reservation r : reservations) {
-            if (r.getStatut() ==StatutReservation.CONFIRMEE) {
-                total +=r.coutPrestation();
+            if (r.getStatut() == StatutReservation.CONFIRMEE) {
+                total += r.coutPrestation();
             }
         }
         return total;
     }
+
     public List<Reservation> reservationsFutures() {
         List<Reservation> futures = new ArrayList<>();
         for (Reservation r : reservations) {
-            if
-            (r.getSeance().getDateHeure().isAfter(java.time.LocalDateTime.now())) {
+            if (r.getSeance().getDateHeure().isAfter(java.time.LocalDateTime.now())) {
                 futures.add(r);
             }
         }
         return futures;
     }
+
+    @Override
     public String toString() {
-        return "Adherent:" + "Id:" +id + "Nom" + nom + "Son abonnement" + abonnement + "Nb de reservation" + reservations.size();
+        return "Adherent{id=" + id + ", nom='" + nom + "', abonnement=" + abonnement + ", nbReservations=" + reservations.size() + "}";
     }
 }
-

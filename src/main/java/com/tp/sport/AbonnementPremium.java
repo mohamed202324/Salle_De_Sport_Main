@@ -1,4 +1,5 @@
 package com.tp.sport;
+
 import java.time.LocalDate;
 
 public class AbonnementPremium extends Abonnement {
@@ -8,19 +9,13 @@ public class AbonnementPremium extends Abonnement {
         super(reference, dateDebut, dureeMois, prixMensuel);
         this.creditsCoach = creditsCoach;
     }
-    public int creditCoach() {
-        return creditsCoach;
-    }
-    public void setCreditsCoach(int creditsCoach) {
-        this.creditsCoach = creditsCoach;
-    }
-    @Override
-    public boolean permetAccesSauna() {
-        return true;
-    }
-    @Override
-    public int creditsCoachInclus() {
-        return creditsCoach;
-    }
 
+    public int getCreditsCoach()                   { return creditsCoach; }
+    public void setCreditsCoach(int creditsCoach)  { this.creditsCoach = creditsCoach; }
+
+    @Override
+    public boolean permetAccesSauna() { return true; }
+
+    @Override
+    public int creditsCoachInclus()   { return creditsCoach; }
 }

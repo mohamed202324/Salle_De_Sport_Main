@@ -8,7 +8,6 @@ public class Seance {
     private LocalDateTime dateHeure;
     private int capaciteMax;
 
-    //Constructeur
     public Seance(int id, String nom, LocalDateTime dateHeure, int capaciteMax) {
         this.id = id;
         this.nom = nom;
@@ -16,22 +15,14 @@ public class Seance {
         this.capaciteMax = capaciteMax;
     }
 
-    //Getters
-    public int getId() {
-        return id;
-    }
-    public String getNom() {
-        return nom;
-    }
-    public LocalDateTime getDateHeure() {
-        return dateHeure;
-    }
-    public int getCapaciteMax() {
-        return capaciteMax;
-    }
+    public int getId()                  { return id; }
+    public String getNom()              { return nom; }
+    public LocalDateTime getDateHeure() { return dateHeure; }
+    public int getCapaciteMax()         { return capaciteMax; }
 
-    //Méthode
+    // BUG  CORRIGÉ : syntaxe toString() invalide → concaténation correcte
+    @Override
     public String toString() {
-        return "Seance{id, nom, dateHeure, capaciteMax}";
+        return "Seance{id=" + id + ", nom='" + nom + "', dateHeure=" + dateHeure + ", capaciteMax=" + capaciteMax + "}";
     }
 }
