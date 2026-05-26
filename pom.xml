@@ -15,7 +15,7 @@
     <repositories>
         <repository>
             <id>local-libs</id>
-            <url>file://${project.basedir}/libs</url>git st
+            <url>file://${project.basedir}/libs</url>
         </repository>
     </repositories>
 
